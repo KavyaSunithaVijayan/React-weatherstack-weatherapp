@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+body {
+    background-image: url("./images/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.App {
+    text-align: center;
+    margin: auto;
+    width: 90%;
+    max-width: 700px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+    padding: 20px 15px;
+}
