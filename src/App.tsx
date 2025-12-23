@@ -57,7 +57,7 @@ function App() {
   const toggleTemperature = () => {
     setShowFahrenheit((prev) => !prev);
   };
-  const toCelsius = (f) => ((f - 32) * 5) / 9;
+   const toCelsius = (f) => ((f - 32) * 5) / 9;
 
   const temperature = showFahrenheit
     ? `${weatherData?.main?.temp.toFixed(2)}°F`
