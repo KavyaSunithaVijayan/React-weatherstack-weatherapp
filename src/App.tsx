@@ -19,6 +19,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [initialLoading, setInitialLoading] = useState(true);
   const [error, setError] = useState(false);
+
   const handleSubmit = async () => {
     if (!inputText.trim()) return;
     setLoading(true);
@@ -26,13 +27,13 @@ function App() {
       const response = await GetWeather(inputText);
       setWeatherData(response);
       setWeatherImage(
-        `http://openweathermap.org/img/wn/${response?.weather[0]?.icon}@2x.png`
+        `http://openweathermap.org/img/wn/${response?.weather[0]?.icon}@2x.png`,
       );
       if (response) {
         setError(false);
         const weatherResponse = await GetForecast(
           response.coord.lat,
-          response.coord.lon
+          response.coord.lon,
         );
         setWeatherForecast(weatherResponse);
       }
@@ -57,7 +58,7 @@ function App() {
   const toggleTemperature = () => {
     setShowFahrenheit((prev) => !prev);
   };
-   const toCelsius = (f) => ((f - 32) * 5) / 9;
+  const toCelsius = (f) => ((f - 32) * 5) / 9;
 
   const temperature = showFahrenheit
     ? `${weatherData?.main?.temp.toFixed(2)}°F`
@@ -75,11 +76,11 @@ function App() {
 
   const sunriseTime = convertUnixToTime(
     weatherData?.sys?.sunrise,
-    "Asia/Kolkata"
+    "Asia/Kolkata",
   );
   const sunsetTime = convertUnixToTime(
     weatherData?.sys?.sunset,
-    "Asia/Kolkata"
+    "Asia/Kolkata",
   );
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -92,7 +93,7 @@ function App() {
     <div className="py-5 max-h-screen overflow-auto">
       {initialLoading && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-white loader_body">
-          <h2 className="loader_text">SkyMate</h2>
+          <h2 className="loader_text">SkyMate </h2>
         </div>
       )}
       {loading && (
